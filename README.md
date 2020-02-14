@@ -1,5 +1,7 @@
 # missguided_poq
+API import poq.postman_collection.json
 
+FE:
 eneter your user/pass for browserstack AND app <hash>
 in src/test/java/tests/BaseTest.java
 run TestNG.xml (multiple devices)
@@ -13,5 +15,3 @@ So to demonstrate how Appium works with iOS we really need more data to create r
 
 Also, we want to mention that it’s a really good practice to use native automation testing frameworks for mobile apps that are developed natively: Espresso for Android and XCUITest for iOS. It requires a bit more effort to support but provides more flexibility and a lot of useful native instruments to create those tests.
 We can compare both ways Appium and Native to provide you with more details.
-
-
