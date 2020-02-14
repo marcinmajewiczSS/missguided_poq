@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c8fc30b1-164b-4e77-831e-ec367ff04ff2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XcKRooepzOnaxKqQCm7oaC7mU8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java" />
+      <recent name="$PROJECT_DIR$/src/test" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="screens" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG./Users/mmaje/ioappium/TestNGOrig.xml">
+    <configuration name="RunCucumberFeatures" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ioappium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cucumber.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cucumber.tests" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.tests.RunCucumberFeatures" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="/Users/mmaje/ioappium/TestNGOrig.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ioappium" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/TestNGOrig.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="/Users/mmaje/ioappium/TestNG.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ioappium" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/TestNG.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG./Users/mmaje/ioappium/TestNGOrig.xml" />
+        <item itemvalue="TestNG./Users/mmaje/ioappium/TestNG.xml" />
+        <item itemvalue="TestNG.RunCucumberFeatures" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c8fc30b1-164b-4e77-831e-ec367ff04ff2" name="Default Changelist" comment="" />
+      <created>1581339936851</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581339936851</updated>
+      <workItem from="1581339940449" duration="55587000" />
+      <workItem from="1581593949816" duration="3781000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2183" y="271" key="#Project_Structure" timestamp="1581400475602">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="440" y="264" key="#Project_Structure/0.23.1680.1027@0.23.1680.1027" timestamp="1581351873873" />
+    <state x="2183" y="271" key="#Project_Structure/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1581400475602" />
+    <state x="532" y="469" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1581348799950">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="532" y="469" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1581348799950" />
+    <state width="1920" height="287" key="GridCell.Tab.0.bottom" timestamp="1581598597231">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1680" height="287" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1581534701431" />
+    <state width="1920" height="287" key="GridCell.Tab.0.bottom/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1581598597231" />
+    <state width="1920" height="287" key="GridCell.Tab.0.center" timestamp="1581598597230">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1680" height="287" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1581534701430" />
+    <state width="1920" height="287" key="GridCell.Tab.0.center/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1581598597230" />
+    <state width="1920" height="287" key="GridCell.Tab.0.left" timestamp="1581598597229">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1680" height="287" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1581534701430" />
+    <state width="1920" height="287" key="GridCell.Tab.0.left/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1581598597229" />
+    <state width="1920" height="287" key="GridCell.Tab.0.right" timestamp="1581598597231">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1680" height="287" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1581534701431" />
+    <state width="1920" height="287" key="GridCell.Tab.0.right/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1581598597231" />
+    <state width="1920" height="366" key="GridCell.Tab.1.bottom" timestamp="1581515286779">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1920" height="366" key="GridCell.Tab.1.bottom/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1581515286779" />
+    <state width="1920" height="366" key="GridCell.Tab.1.center" timestamp="1581515286778">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1920" height="366" key="GridCell.Tab.1.center/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1581515286778" />
+    <state width="1920" height="366" key="GridCell.Tab.1.left" timestamp="1581515286778">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1920" height="366" key="GridCell.Tab.1.left/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1581515286778" />
+    <state width="1920" height="366" key="GridCell.Tab.1.right" timestamp="1581515286779">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1920" height="366" key="GridCell.Tab.1.right/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1581515286779" />
+    <state x="2178" y="213" key="Maven.ArtifactSearchDialog" timestamp="1581491510948">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2178" y="213" key="Maven.ArtifactSearchDialog/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1581491510948" />
+    <state x="328" y="180" key="SettingsEditor" timestamp="1581356314016">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="328" y="180" key="SettingsEditor/0.23.1680.1027@0.23.1680.1027" timestamp="1581356314016" />
+  </component>
+</project>

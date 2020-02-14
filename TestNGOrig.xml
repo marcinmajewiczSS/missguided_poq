@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Missguided-BS-Android-Test-Suite" parallel="tests" thread-count="1">
+
+    <test name="Samsung Galaxy S8 ver 7" >
+        <parameter name="deviceName" value="Samsung Galaxy S8" />
+        <parameter name="platformVersion" value="7.0" />
+        <classes>
+            <class name="tests.cucumber.tests.RunCucumberFeatures" />
+        </classes>
+    </test>
+
+    <test name="Samsung Galaxy S8 ver 6" >
+        <parameter name="deviceName" value="Samsung Galaxy S8" />
+        <parameter name="platformVersion" value="6.0" />
+        <classes>
+            <class name="tests.cucumber.tests.RunCucumberFeatures" />
+        </classes>
+    </test>
+
+</suite>

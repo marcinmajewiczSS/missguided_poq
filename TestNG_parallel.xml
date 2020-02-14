@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Missguided-BS-Android-Test-Suite" parallel="tests" thread-count="1">
+
+    <test name="Samsung Galaxy S8 Plus ver 9.0" >
+        <parameter name="deviceName" value="Samsung Galaxy S8 Plus" />
+        <parameter name="platformVersion" value="9.0" />
+        <classes>
+            <class name="tests.cucumber.tests.RunCucumberFeatures" />
+        </classes>
+    </test>
+
+    <test name="Samsung Galaxy S8 Plus ver 8.0" >
+        <parameter name="deviceName" value="Samsung Galaxy S8 Plus" />
+        <parameter name="platformVersion" value="8.0" />
+        <classes>
+            <class name="tests.cucumber.tests.RunCucumberFeatures" />
+        </classes>
+    </test>
+
+    <test name="Google Pixel 3 ver 10.0" >
+        <parameter name="deviceName" value="Google Pixel 3" />
+        <parameter name="platformVersion" value="10.0" />
+        <classes>
+            <class name="tests.cucumber.tests.RunCucumberFeatures" />
+        </classes>
+    </test>
+
+    <test name="Google Pixel 3 ver 9.0" >
+        <parameter name="deviceName" value="Google Pixel 3" />
+        <parameter name="platformVersion" value="9.0" />
+        <classes>
+            <class name="tests.cucumber.tests.RunCucumberFeatures" />
+        </classes>
+    </test>
+
+    <test name="OnePlus 7 ver 9.0" >
+        <parameter name="deviceName" value="OnePlus 7" />
+        <parameter name="platformVersion" value="9.0" />
+        <classes>
+            <class name="tests.cucumber.tests.RunCucumberFeatures" />
+        </classes>
+    </test>
+
+    <test name="OnePlus 7 ver 8.0" >
+        <parameter name="deviceName" value="OnePlus 7" />
+        <parameter name="platformVersion" value="8.0" />
+        <classes>
+            <class name="tests.cucumber.tests.RunCucumberFeatures" />
+        </classes>
+    </test>
+
+</suite>

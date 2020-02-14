@@ -1,0 +1,1451 @@
+{
+	"info": {
+		"_postman_id": "136d1978-1e8c-4e9b-940c-183c6aed73ca",
+		"name": "poq",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "missguided-register_with_newsletter",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							"let uuid = require('uuid');",
+							"pm.environment.set('userId', uuid.v4());",
+							"let email='testmail'+_.random(1000)+'@gmail.com';",
+							"pm.environment.set('email',email);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Authentication complete.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Poq-App-Id",
+						"value": "76",
+						"type": "text"
+					},
+					{
+						"key": "Poq-User-Id",
+						"value": "{{userId}}",
+						"type": "text"
+					},
+					{
+						"key": "Platform",
+						"value": "Android",
+						"type": "text"
+					},
+					{
+						"key": "Version-Code",
+						"value": "13.2",
+						"type": "text"
+					},
+					{
+						"key": "Currency-Code",
+						"value": "GBP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isPromotion\":true,\n    \"credentials\":\n        {\n            \"password\":\"password\",\n            \"username\":\"{{email}}\"\n        },\n    \"newsletterSignUp\":true,\n    \"profile\":\n        {\n            \"isPromotion\":true,\n            \"accessToken\":\"\",\n            \"cookies\":[],\n            \"email\":\"{{email}}\",\n            \"employeeId\":\"\",\n            \"encryptedPassword\":\"\",\n            \"expressCheckout\":false,\n            \"firstName\":\"{{$randomFirstName}}\",\n            \"isBagMerged\":false,\n            \"isBagMergedMessage\":\"\",\n            \"lastName\":\"{{$randomLastName}}\",\n            \"loyaltyCardNumber\":\"\",\n            \"newsletterSignUp\":true,\n            \"phone\":\"\",\n            \"refreshToken\":\"\",\n            \"storeId\":\"\",\n            \"username\":\"\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/register/76/{{userId}}",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"register",
+						"76",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-register_no_password",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							"let uuid = require('uuid');",
+							"pm.environment.set('userId', uuid.v4());",
+							"let email='testmail'+_.random(1000)+'@gmail.com';",
+							"pm.environment.set('email',email);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"An error occurred while processing your request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Poq-App-Id",
+						"value": "76",
+						"type": "text"
+					},
+					{
+						"key": "Poq-User-Id",
+						"value": "{{userId}}",
+						"type": "text"
+					},
+					{
+						"key": "Platform",
+						"value": "Android",
+						"type": "text"
+					},
+					{
+						"key": "Version-Code",
+						"value": "13.2",
+						"type": "text"
+					},
+					{
+						"key": "Currency-Code",
+						"value": "GBP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isPromotion\":false,\n    \"credentials\":\n        {\n            \"password\":\"\",\n            \"username\":\"{{email}}\"\n        },\n    \"newsletterSignUp\":false,\n    \"profile\":\n        {\n            \"isPromotion\":false,\n            \"accessToken\":\"\",\n            \"cookies\":[],\n            \"email\":\"{{email}}\",\n            \"employeeId\":\"\",\n            \"encryptedPassword\":\"\",\n            \"expressCheckout\":false,\n            \"firstName\":\"{{$randomFirstName}}\",\n            \"isBagMerged\":false,\n            \"isBagMergedMessage\":\"\",\n            \"lastName\":\"{{$randomLastName}}\",\n            \"loyaltyCardNumber\":\"\",\n            \"newsletterSignUp\":false,\n            \"phone\":\"\",\n            \"refreshToken\":\"\",\n            \"storeId\":\"\",\n            \"username\":\"\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/register/76/{{userId}}",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"register",
+						"76",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-register_no_username",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							"let uuid = require('uuid');",
+							"pm.environment.set('userId', uuid.v4());",
+							"let email='testmail'+_.random(1000)+'@gmail.com';",
+							"pm.environment.set('email',email);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"An error occurred while processing your request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Poq-App-Id",
+						"value": "76",
+						"type": "text"
+					},
+					{
+						"key": "Poq-User-Id",
+						"value": "{{userId}}",
+						"type": "text"
+					},
+					{
+						"key": "Platform",
+						"value": "Android",
+						"type": "text"
+					},
+					{
+						"key": "Version-Code",
+						"value": "13.2",
+						"type": "text"
+					},
+					{
+						"key": "Currency-Code",
+						"value": "GBP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isPromotion\":false,\n    \"credentials\":\n        {\n            \"password\":\"password\",\n            \"username\":\"\"\n        },\n    \"newsletterSignUp\":false,\n    \"profile\":\n        {\n            \"isPromotion\":false,\n            \"accessToken\":\"\",\n            \"cookies\":[],\n            \"email\":\"{{email}}\",\n            \"employeeId\":\"\",\n            \"encryptedPassword\":\"\",\n            \"expressCheckout\":false,\n            \"firstName\":\"{{$randomFirstName}}\",\n            \"isBagMerged\":false,\n            \"isBagMergedMessage\":\"\",\n            \"lastName\":\"{{$randomLastName}}\",\n            \"loyaltyCardNumber\":\"\",\n            \"newsletterSignUp\":false,\n            \"phone\":\"\",\n            \"refreshToken\":\"\",\n            \"storeId\":\"\",\n            \"username\":\"\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/register/76/{{userId}}",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"register",
+						"76",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-register_wrong_mail",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							"let uuid = require('uuid');",
+							"pm.environment.set('userId', uuid.v4());",
+							"let email='testmail'+_.random(1000)+'@gmail.com';",
+							"pm.environment.set('email',email);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"An error occurred while processing your request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Poq-App-Id",
+						"value": "76",
+						"type": "text"
+					},
+					{
+						"key": "Poq-User-Id",
+						"value": "{{userId}}",
+						"type": "text"
+					},
+					{
+						"key": "Platform",
+						"value": "Android",
+						"type": "text"
+					},
+					{
+						"key": "Version-Code",
+						"value": "13.2",
+						"type": "text"
+					},
+					{
+						"key": "Currency-Code",
+						"value": "GBP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isPromotion\":false,\n    \"credentials\":\n        {\n            \"password\":\"password\",\n            \"username\":\"mailexampledomain.com\"\n        },\n    \"newsletterSignUp\":false,\n    \"profile\":\n        {\n            \"isPromotion\":false,\n            \"accessToken\":\"\",\n            \"cookies\":[],\n            \"email\":\"{{email}}\",\n            \"employeeId\":\"\",\n            \"encryptedPassword\":\"\",\n            \"expressCheckout\":false,\n            \"firstName\":\"{{$randomFirstName}}\",\n            \"isBagMerged\":false,\n            \"isBagMergedMessage\":\"\",\n            \"lastName\":\"{{$randomLastName}}\",\n            \"loyaltyCardNumber\":\"\",\n            \"newsletterSignUp\":false,\n            \"phone\":\"\",\n            \"refreshToken\":\"\",\n            \"storeId\":\"\",\n            \"username\":\"\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/register/76/{{userId}}",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"register",
+						"76",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-register_no_name",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							"let uuid = require('uuid');",
+							"pm.environment.set('userId', uuid.v4());",
+							"let email='testmail'+_.random(1000)+'@gmail.com';",
+							"pm.environment.set('email',email);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"An error occurred while processing your request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					},
+					{
+						"key": "Poq-App-Id",
+						"type": "text",
+						"value": "76"
+					},
+					{
+						"key": "Poq-User-Id",
+						"type": "text",
+						"value": "{{userId}}"
+					},
+					{
+						"key": "Platform",
+						"type": "text",
+						"value": "Android"
+					},
+					{
+						"key": "Version-Code",
+						"type": "text",
+						"value": "13.2"
+					},
+					{
+						"key": "Currency-Code",
+						"type": "text",
+						"value": "GBP"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isPromotion\":false,\n    \"credentials\":\n        {\n            \"password\":\"password\",\n            \"username\":\"{{email}}\"\n        },\n    \"newsletterSignUp\":false,\n    \"profile\":\n        {\n            \"isPromotion\":false,\n            \"accessToken\":\"\",\n            \"cookies\":[],\n            \"email\":\"{{email}}\",\n            \"employeeId\":\"\",\n            \"encryptedPassword\":\"\",\n            \"expressCheckout\":false,\n            \"firstName\":\"\",\n            \"isBagMerged\":false,\n            \"isBagMergedMessage\":\"\",\n            \"lastName\":\"{{$randomLastName}}\",\n            \"loyaltyCardNumber\":\"\",\n            \"newsletterSignUp\":false,\n            \"phone\":\"\",\n            \"refreshToken\":\"\",\n            \"storeId\":\"\",\n            \"username\":\"\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/register/76/{{userId}}",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"register",
+						"76",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-register_no_surname",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							"let uuid = require('uuid');",
+							"pm.environment.set('userId', uuid.v4());",
+							"let email='testmail'+_.random(1000)+'@gmail.com';",
+							"pm.environment.set('email',email);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"An error occurred while processing your request\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					},
+					{
+						"key": "Poq-App-Id",
+						"type": "text",
+						"value": "76"
+					},
+					{
+						"key": "Poq-User-Id",
+						"type": "text",
+						"value": "{{userId}}"
+					},
+					{
+						"key": "Platform",
+						"type": "text",
+						"value": "Android"
+					},
+					{
+						"key": "Version-Code",
+						"type": "text",
+						"value": "13.2"
+					},
+					{
+						"key": "Currency-Code",
+						"type": "text",
+						"value": "GBP"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isPromotion\":false,\n    \"credentials\":\n        {\n            \"password\":\"password\",\n            \"username\":\"mailexampledomain.com\"\n        },\n    \"newsletterSignUp\":false,\n    \"profile\":\n        {\n            \"isPromotion\":false,\n            \"accessToken\":\"\",\n            \"cookies\":[],\n            \"email\":\"{{email}}\",\n            \"employeeId\":\"\",\n            \"encryptedPassword\":\"\",\n            \"expressCheckout\":false,\n            \"firstName\":\"{{$randomFirstName}}\",\n            \"isBagMerged\":false,\n            \"isBagMergedMessage\":\"\",\n            \"lastName\":\"\",\n            \"loyaltyCardNumber\":\"\",\n            \"newsletterSignUp\":false,\n            \"phone\":\"\",\n            \"refreshToken\":\"\",\n            \"storeId\":\"\",\n            \"username\":\"\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/register/76/{{userId}}",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"register",
+						"76",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-register_no_newsletter",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							"let uuid = require('uuid');",
+							"pm.environment.set('userId', uuid.v4());",
+							"let email='testmail'+_.random(1000)+'@gmail.com';",
+							"pm.environment.set('email',email);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Authentication complete.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Poq-App-Id",
+						"value": "76",
+						"type": "text"
+					},
+					{
+						"key": "Poq-User-Id",
+						"value": "{{userId}}",
+						"type": "text"
+					},
+					{
+						"key": "Platform",
+						"value": "Android",
+						"type": "text"
+					},
+					{
+						"key": "Version-Code",
+						"value": "13.2",
+						"type": "text"
+					},
+					{
+						"key": "Currency-Code",
+						"value": "GBP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isPromotion\":false,\n    \"credentials\":\n        {\n            \"password\":\"password\",\n            \"username\":\"{{email}}\"\n        },\n    \"newsletterSignUp\":false,\n    \"profile\":\n        {\n            \"isPromotion\":false,\n            \"accessToken\":\"\",\n            \"cookies\":[],\n            \"email\":\"{{email}}\",\n            \"employeeId\":\"\",\n            \"encryptedPassword\":\"\",\n            \"expressCheckout\":false,\n            \"firstName\":\"{{$randomFirstName}}\",\n            \"isBagMerged\":false,\n            \"isBagMergedMessage\":\"\",\n            \"lastName\":\"{{$randomLastName}}\",\n            \"loyaltyCardNumber\":\"\",\n            \"newsletterSignUp\":false,\n            \"phone\":\"\",\n            \"refreshToken\":\"\",\n            \"storeId\":\"\",\n            \"username\":\"\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/register/76/{{userId}}",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"register",
+						"76",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-login-OK",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "820a496d-4fcd-4919-83fc-e3eb52b0efbf",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Authentication complete.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					},
+					{
+						"key": "Poq-App-Id",
+						"type": "text",
+						"value": "76"
+					},
+					{
+						"key": "Poq-User-Id",
+						"type": "text",
+						"value": "ddacf0e9-b78b-4e62-8d3b-9ccdad5f620b"
+					},
+					{
+						"key": "Platform",
+						"type": "text",
+						"value": "Android"
+					},
+					{
+						"key": "Version-Code",
+						"type": "text",
+						"value": "13.2"
+					},
+					{
+						"key": "Currency-Code",
+						"type": "text",
+						"value": "GBP"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "okhttp/3.13.1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"password\":\"password\",\"username\":\"{{email}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/Login/76/{{userId}}",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"Login",
+						"76",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-register_duplicated_user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"An account with this email address already exists.\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json; charset=UTF-8",
+						"type": "text"
+					},
+					{
+						"key": "Poq-App-Id",
+						"value": "76",
+						"type": "text"
+					},
+					{
+						"key": "Poq-User-Id",
+						"value": "{{userId}}",
+						"type": "text"
+					},
+					{
+						"key": "Platform",
+						"value": "Android",
+						"type": "text"
+					},
+					{
+						"key": "Version-Code",
+						"value": "13.2",
+						"type": "text"
+					},
+					{
+						"key": "Currency-Code",
+						"value": "GBP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isPromotion\":false,\n    \"credentials\":\n        {\n            \"password\":\"password\",\n            \"username\":\"{{email}}\"\n        },\n    \"newsletterSignUp\":false,\n    \"profile\":\n        {\n            \"isPromotion\":false,\n            \"accessToken\":\"\",\n            \"cookies\":[],\n            \"email\":\"{{email}}\",\n            \"employeeId\":\"\",\n            \"encryptedPassword\":\"\",\n            \"expressCheckout\":false,\n            \"firstName\":\"{{$randomFirstName}}\",\n            \"isBagMerged\":false,\n            \"isBagMergedMessage\":\"\",\n            \"lastName\":\"{{$randomLastName}}\",\n            \"loyaltyCardNumber\":\"\",\n            \"newsletterSignUp\":false,\n            \"phone\":\"\",\n            \"refreshToken\":\"\",\n            \"storeId\":\"\",\n            \"username\":\"\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/register/76/{{userId}}",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"register",
+						"76",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-login-wrong_password",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7526cca7-5705-4bb8-8c4c-bfe18997efa2",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Login Failed: Wrong username or password\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					},
+					{
+						"key": "Poq-App-Id",
+						"type": "text",
+						"value": "76"
+					},
+					{
+						"key": "Poq-User-Id",
+						"type": "text",
+						"value": "ddacf0e9-b78b-4e62-8d3b-9ccdad5f620b"
+					},
+					{
+						"key": "Platform",
+						"type": "text",
+						"value": "Android"
+					},
+					{
+						"key": "Version-Code",
+						"type": "text",
+						"value": "13.2"
+					},
+					{
+						"key": "Currency-Code",
+						"type": "text",
+						"value": "GBP"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "okhttp/3.13.1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"password\":\"wrong-password\",\"username\":\"{{mail}}\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/Login/76/ddacf0e9-b78b-4e62-8d3b-9ccdad5f620b",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"Login",
+						"76",
+						"ddacf0e9-b78b-4e62-8d3b-9ccdad5f620b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-login-wrong_username",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7526cca7-5705-4bb8-8c4c-bfe18997efa2",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Login Failed: Wrong username or password\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					},
+					{
+						"key": "Poq-App-Id",
+						"type": "text",
+						"value": "76"
+					},
+					{
+						"key": "Poq-User-Id",
+						"type": "text",
+						"value": "ddacf0e9-b78b-4e62-8d3b-9ccdad5f620b"
+					},
+					{
+						"key": "Platform",
+						"type": "text",
+						"value": "Android"
+					},
+					{
+						"key": "Version-Code",
+						"type": "text",
+						"value": "13.2"
+					},
+					{
+						"key": "Currency-Code",
+						"type": "text",
+						"value": "GBP"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "okhttp/3.13.1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"password\":\"password\",\"username\":\"wrong_mail@mail.com\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/Account/Login/76/ddacf0e9-b78b-4e62-8d3b-9ccdad5f620b",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"Account",
+						"Login",
+						"76",
+						"ddacf0e9-b78b-4e62-8d3b-9ccdad5f620b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3c31c50a-90d8-4ab9-9f9d-9adaf7f11299",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Check success logout\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).to.eql(true);",
+							"});",
+							"pm.test(\"Check if there is no errors during logout\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errors).to.eql([]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": "api-analytics.missguided.com"
+					},
+					{
+						"key": "authorization",
+						"value": "Basic d3k5MjA5dDA5bWxheHZxOGJ5Mmt0NHVzZ3YwcThxazZ3dGpyOWltazhnaTU5cW5xaDl2OXR5aXE4M3o5OTUyazpteHExdDQ1Ynp0aWJuNWYzdWE0aWF2YzkwODc3dThmcjY2MDlpdjFoeHBhOW1pbHl5N24wMjl6NDRvdjEzMHk3"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json; charset=utf-8"
+					},
+					{
+						"key": "user-agent",
+						"value": "okhttp/3.13.1"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"customer_ids\":{\"email_id\":\"f839612acdb9c8006dbe9790c519692016fac341d5c50cda28b72f4729a5d4f1\",\"cookie\":\"574f802b-f795-4bea-b11e-5ac7058db28f\"},\"properties\":{\"userId\":\"3fc2c4ac-49c4-4b10-a18f-081c80be2eb7\"},\"timestamp\":1.581499994E9,\"event_type\":\"logout\"}"
+				},
+				"url": {
+					"raw": "https://api-analytics.missguided.com/track/v2/projects/1a13834a-88a7-11e7-a6e4-305a3a75dd9b/customers/events",
+					"protocol": "https",
+					"host": [
+						"api-analytics",
+						"missguided",
+						"com"
+					],
+					"path": [
+						"track",
+						"v2",
+						"projects",
+						"1a13834a-88a7-11e7-a6e4-305a3a75dd9b",
+						"customers",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-open_category",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					},
+					{
+						"key": "Poq-App-Id",
+						"type": "text",
+						"value": "76"
+					},
+					{
+						"key": "Poq-User-Id",
+						"type": "text",
+						"value": "{{userId}}"
+					},
+					{
+						"key": "Platform",
+						"type": "text",
+						"value": "Android"
+					},
+					{
+						"key": "Version-Code",
+						"type": "text",
+						"value": "13.2"
+					},
+					{
+						"key": "Currency-Code",
+						"type": "text",
+						"value": "GBP"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/products/filter/76?categoryId=67349&externalId=67349&page=1",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"products",
+						"filter",
+						"76"
+					],
+					"query": [
+						{
+							"key": "categoryId",
+							"value": "67349"
+						},
+						{
+							"key": "externalId",
+							"value": "67349"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-open_details",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					},
+					{
+						"key": "Poq-App-Id",
+						"type": "text",
+						"value": "76"
+					},
+					{
+						"key": "Poq-User-Id",
+						"type": "text",
+						"value": "{{userId}}"
+					},
+					{
+						"key": "Platform",
+						"type": "text",
+						"value": "Android"
+					},
+					{
+						"key": "Version-Code",
+						"type": "text",
+						"value": "13.2"
+					},
+					{
+						"key": "Currency-Code",
+						"type": "text",
+						"value": "GBP"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isPromotion\":false,\n    \"credentials\":\n        {\n            \"password\":\"password\",\n            \"username\":\"{{email}}\"\n        },\n    \"newsletterSignUp\":false,\n    \"profile\":\n        {\n            \"isPromotion\":false,\n            \"accessToken\":\"\",\n            \"cookies\":[],\n            \"email\":\"{{email}}\",\n            \"employeeId\":\"\",\n            \"encryptedPassword\":\"\",\n            \"expressCheckout\":false,\n            \"firstName\":\"{{$randomFirstName}}\",\n            \"isBagMerged\":false,\n            \"isBagMergedMessage\":\"\",\n            \"lastName\":\"{{$randomLastName}}\",\n            \"loyaltyCardNumber\":\"\",\n            \"newsletterSignUp\":false,\n            \"phone\":\"\",\n            \"refreshToken\":\"\",\n            \"storeId\":\"\",\n            \"username\":\"\"\n        }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/products/detail/76/5481599?poqUserId=e2be3c00-efeb-43ad-9e21-43cea993fe99&externalId=1228070",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"products",
+						"detail",
+						"76",
+						"5481599"
+					],
+					"query": [
+						{
+							"key": "poqUserId",
+							"value": "e2be3c00-efeb-43ad-9e21-43cea993fe99"
+						},
+						{
+							"key": "externalId",
+							"value": "1228070"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missguided-open_category_get_product_list",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eaf56df1-ebc4-4ee3-989c-f7b69bfb366b",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "72befde9-81c1-408f-b28e-b6450aa1c4be",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"var jsonData = JSON.parse(responseBody);",
+							"var jsonLength = jsonData.products.length;",
+							"var array = [];",
+							"for (var i = 0; i < jsonLength; i++)",
+							"    {",
+							"        var counter = jsonData.products[i];",
+							"        product = [];",
+							"        product.push(counter.id, counter.title)",
+							"        array.push(product);",
+							"    }",
+							"pm.environment.set(\"product_list\", array);",
+							"console.log(array);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json; charset=UTF-8"
+					},
+					{
+						"key": "Poq-App-Id",
+						"type": "text",
+						"value": "76"
+					},
+					{
+						"key": "Poq-User-Id",
+						"type": "text",
+						"value": "{{userId}}"
+					},
+					{
+						"key": "Platform",
+						"type": "text",
+						"value": "Android"
+					},
+					{
+						"key": "Version-Code",
+						"type": "text",
+						"value": "13.2"
+					},
+					{
+						"key": "Currency-Code",
+						"type": "text",
+						"value": "GBP"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{poqUrl}}/products/filter/76?categoryId=67349&externalId=67349&page=1",
+					"host": [
+						"{{poqUrl}}"
+					],
+					"path": [
+						"products",
+						"filter",
+						"76"
+					],
+					"query": [
+						{
+							"key": "categoryId",
+							"value": "67349"
+						},
+						{
+							"key": "externalId",
+							"value": "67349"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
