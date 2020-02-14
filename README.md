@@ -2,7 +2,7 @@
 API import poq.postman_collection.json
 
 FE:
-eneter your user/pass for browserstack AND app <hash>
+enter your user/pass for browserstack AND app <hashCode>
 in src/test/java/tests/BaseTest.java
 run TestNG.xml (multiple devices)
 
